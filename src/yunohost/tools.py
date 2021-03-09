@@ -116,7 +116,7 @@ def tools_ldapinit():
         "userPassword": ["yunohost"],
     }
 
-    ldap.update("cn=admin", admin_dict)
+    ldap.add("cn=admin", admin_dict)
 
     # Force nscd to refresh cache to take admin creation into account
     subprocess.call(["nscd", "-i", "passwd"])
