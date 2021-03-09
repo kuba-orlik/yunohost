@@ -71,7 +71,7 @@ def tools_ldapinit():
     """
 
     with open("/usr/share/yunohost/yunohost-config/moulinette/ldap_scheme.yml") as f:
-        ldap_map = yaml.load(f)
+        ldap_map = yaml.safe_load(f)
 
     from yunohost.utils.ldap import _get_ldap_interface
 
