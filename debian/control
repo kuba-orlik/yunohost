@@ -25,7 +25,9 @@ Depends: ${python3:Depends}, ${misc:Depends}
  , dovecot-core, dovecot-ldap, dovecot-lmtpd, dovecot-managesieved, dovecot-antispam
  , rspamd, opendkim-tools, postsrsd, procmail, mailutils
  , redis-server
- , git, curl, wget, cron, unzip, jq, bc
+ , metronome (>=3.14.0)
+ , acl
+ , git, curl, wget, cron, unzip, jq, bc, at
  , lsb-release, haveged, fake-hwclock, equivs, lsof, whois
 Recommends: yunohost-admin
  , ntp, inetutils-ping | iputils-ping
