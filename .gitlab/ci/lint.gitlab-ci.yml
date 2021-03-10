@@ -3,20 +3,20 @@
 ########################################
 # later we must fix lint and format-check jobs and remove "allow_failure"
 
-lint37:
+lint39:
   stage: lint
   image: "before-install"
   needs: []
   allow_failure: true
   script:
-    - tox -e py37-lint
+    - tox -e py39-lint
 
-invalidcode37:
+invalidcode39:
   stage: lint
   image: "before-install"
   needs: []
   script:
-    - tox -e py37-invalidcode
+    - tox -e py39-invalidcode
 
 format-check:
   stage: lint
@@ -24,7 +24,7 @@ format-check:
   allow_failure: true
   needs: []
   script:
-    - tox -e py37-black-check
+    - tox -e py39-black-check
 
 format-run:
   stage: lint
@@ -39,7 +39,7 @@ format-run:
   script:
     # checkout or create and checkout the branch
     - hub checkout "ci-format-${CI_COMMIT_REF_NAME}" || hub checkout -b "ci-format-${CI_COMMIT_REF_NAME}"
-    - tox -e py37-black-run
+    - tox -e py39-black-run
     - hub commit -am "[CI] Format code" || true
     - hub pull-request -m "[CI] Format code" -b Yunohost:dev -p || true # GITHUB_USER and GITHUB_TOKEN registered here https://gitlab.com/yunohost/yunohost/-/settings/ci_cd
   only:
